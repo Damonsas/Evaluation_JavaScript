@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="asset/js/books.js" defer></script>
+    <script src="asset/js/utils.js" defer></script>
+    <script src="asset/js/ui.js" defer></script>
+    <script src="asset/js/script.js" defer></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/css/style.css">
+    <title>Dautilus</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Dautilus</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <i class="fa fa-info-circle"> La BU</i>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="icon-link_icon notification-level-0"> Mon compte</i></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="icon icon--font fa fa-sign-out icon icon-link_icon"></i> se déconnecter</a>
+                    </li>
+                    
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                <input class="form-control me-2 container" type="search" placeholder="Trouver un livre, un titre de revue, un document en ligne, un DVD" aria-label="Search"/>
+                <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <select class="nav-item dropdown" id="search-type">
+                    <option value="all" selected>Tous les champs</option>
+                    <option value="book">Livres</option>
+                    <option value="journal">Revues</option>
+                    <option value="dvd">DVD</option>
+                    <option value="online">Documents en ligne</option>
+                </select>
+                </form>
+            </div>
+        </nav>
+    </header>
+    <div id="favoris" class="main-section" style="display: none"></div>
+     <div id="emprunts" class="main-section" style="display: none"></div>
+      <div id="Réservations" class="main-section" style="display: none"></div>
+       <div id="Historique" class="main-section" style="display: none"></div>
+    <nav class="breadcrumbs" aria-label="chemin">
+        <div>
+            <ul class="breadcrumb hidden-print">
+                <li class="breadcrumb-item"><a href="#">Mon compte</a></li>
+                
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">Emprunts</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="content" class="container">
+         <div id="mysearch-sidebar" class="sidde-bar left" role="navigation" aria-label="information et option du compte">
+            <h3>Mon compte</h3>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('favoris'); displayFavoris();"><span class="fa fa-star icon-link_icon">
+                    </span><span class="icon-link_label"> Favoris</span>
+                    </a></li>
+                    <li><a href="#" onclick="showSection('emprunts'); displayUserBooks();"><span class="fa fa-book icon-link_icon">
+                    </span><span class="icon-link_label"> Emprunts</span></a></li>
+                    <li><a href="#" onclick="showSection('Réservations'); displayReservations();"><span class="fa fa-calendar-check icon-link_icon">
+                    </span><span class="icon-link_label"> Réservations</span>
+                    </a></li>
+                    <li><a href="#" onclick="showSection('Historique'); displayHistorique();"><span class="icon icon--font fa fa-history icon-link_icon">
+                    </span><span class="icon-link_label"> Historique</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="mainbody right">
+            <h2>Vos emprunts</h2>
+            <div id="affiEmprunts">{{.}}</div> 
+        </div>
+
+        
+    </div>
+    <footer class="bg-body-tertiary">
+        <div class="text-light">
+            <p class="text-center ">© 2023 Dautilus. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
